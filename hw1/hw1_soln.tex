@@ -1,101 +1,270 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Structured General Purpose Assignment% LaTeX Template%% This template has been downloaded from:% http://www.latextemplates.com%% Original author:% Ted Pavlic (http://www.tedpavlic.com)%% Note:% The \lipsum[#] commands throughout this template generate dummy text% to fill the template out. These commands should all be removed when % writing assignment content.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%----------------------------------------------------------------------------------------%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS%----------------------------------------------------------------------------------------\documentclass{article}\usepackage{fancyhdr} % Required for custom headers\usepackage{lastpage} % Required to determine the last page for the footer\usepackage{extramarks} % Required for headers and footers\usepackage{graphicx} % Required to insert images\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template\usepackage{amsfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{amsfonts}
 \usepackage{subfig}
-\usepackage{graphicx}\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amsmath}
 
-%%% Margins%\topmargin=-0.45in%\evensidemargin=0in%\oddsidemargin=0in%\textwidth=6.5in%\textheight=9.0in%\headsep=0.25in %%\linespread{1.1} % Line spacing%%% Set up the header and footer%\pagestyle{fancy}%\lhead{\hmwkAuthorName} % Top left header%\chead{\hmwkClass\ (\hmwkClassInstructor): \hmwkTitle} % Top center header%\rhead{\firstxmark} % Top right header%\lfoot{\lastxmark} % Bottom left footer%\cfoot{} % Bottom center footer%\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer%\renewcommand\headrulewidth{0.4pt} % Size of the header rule%\renewcommand\footrulewidth{0.4pt} % Size of the footer rule%%\setlength\parindent{0pt} % Removes all indentation from paragraphs%%%----------------------------------------------------------------------------------------%%	DOCUMENT STRUCTURE COMMANDS%%	Skip this unless you know what you're doing%%----------------------------------------------------------------------------------------%%% Header and footer for when a page split occurs within a problem environment%\newcommand{\enterProblemHeader}[1]{%\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%}%%% Header and footer for when a page split occurs between problem environments%\newcommand{\exitProblemHeader}[1]{%\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%\nobreak\extramarks{#1}{}\nobreak%}%%\setcounter{secnumdepth}{0} % Removes default section numbers%\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems%%\newcommand{\homeworkProblemName}{}%\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"%\stepcounter{homeworkProblemCounter} % Increase counter for number of problems%\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem%\section{\homeworkProblemName} % Make a section in the document with the custom problem count%\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment%}{%\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment%}%%\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument%\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside%}%%\newcommand{\homeworkSectionName}{}%\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section%\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument%\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection%\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment%}{%\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment%}   %----------------------------------------------------------------------------------------%	NAME AND CLASS SECTION%----------------------------------------------------------------------------------------\newcommand{\hmwkTitle}{Assignment\ \#3} % Assignment title\newcommand{\hmwkDueDate}{Tuesday,\ November\ 3,\ 2015} % Due date\newcommand{\hmwkClass}{CS\ 260} % Course/class\newcommand{\hmwkClassInstructor}{Prof. Hardekopf} % Teacher/lecturer\newcommand{\hmwkAuthorName}{Chad Spensky} % Your name%----------------------------------------------------------------------------------------%	TITLE PAGE%----------------------------------------------------------------------------------------\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\\vspace{0.1in}\large{\textit{\hmwkClassInstructor}}\vspace{3in}}\author{\textbf{\hmwkAuthorName}}\date{} % Insert date here if you want it to appear below your name%----------------------------------------------------------------------------------------\begin{document}\maketitle\newpage
-%----------------------------------------------------------------------------------------%	TABLE OF CONTENTS%----------------------------------------------------------------------------------------%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC%%\newpage%\tableofcontents%\newpage%----------------------------------------------------------------------------------------%	PROBLEM 1%----------------------------------------------------------------------------------------% To have just one problem per page, simply put a \clearpage after each problem
+%
+%% Margins
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in 
+%
+%\linespread{1.1} % Line spacing
+%
+%% Set up the header and footer
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName} % Top left header
+%\chead{\hmwkClass\ (\hmwkClassInstructor): \hmwkTitle} % Top center header
+%\rhead{\firstxmark} % Top right header
+%\lfoot{\lastxmark} % Bottom left footer
+%\cfoot{} % Bottom center footer
+%\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+%\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+%\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+%
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs
+%
+%%----------------------------------------------------------------------------------------
+%%	DOCUMENT STRUCTURE COMMANDS
+%%	Skip this unless you know what you're doing
+%%----------------------------------------------------------------------------------------
+%
+%% Header and footer for when a page split occurs within a problem environment
+%\newcommand{\enterProblemHeader}[1]{
+%\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+%\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+%}
+%
+%% Header and footer for when a page split occurs between problem environments
+%\newcommand{\exitProblemHeader}[1]{
+%\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+%\nobreak\extramarks{#1}{}\nobreak
+%}
+%
+%\setcounter{secnumdepth}{0} % Removes default section numbers
+%\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+%
+%\newcommand{\homeworkProblemName}{}
+%\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+%\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+%\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+%\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+%\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+%}{
+%\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+%}
+%
+%\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+%\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+%}
+%
+%\newcommand{\homeworkSectionName}{}
+%\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+%\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+%\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+%\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+%}{
+%\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+%}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
 
+\newcommand{\hmwkTitle}{Assignment\ \#1} % Assignment title
+\newcommand{\hmwkDueDate}{Thursday,\ Jaunary\ 14,\ 2016} % Due date
+\newcommand{\hmwkClass}{CS\ 260} % Course/class
+\newcommand{\hmwkClassInstructor}{Prof. Wim van Dam} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Chad Spensky} % Your name
 
-\begin{figure*}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
 
-\centering
-\subfloat[Addition]{
-    \begin{tabular}{c|ccccc}
-     			& $\bot$  		& $\mathbb{Z-}$ 	& $0$		 & $\mathbb{Z+}$ 	& $\top$ \\ \hline    $\bot$  		& $\bot$			&  $\bot$   			&     $\bot$          	&	    $\bot$                    	&    $\bot$  \\
- $\mathbb{Z-}$ 	& $\bot$			&  $\mathbb{Z-}$    			&         $\mathbb{Z-}$      	&          $\top$    			&        $\top$         \\
-    $0$    		& $\bot$			&   $\mathbb{Z-}$ 			&       $0$         	&            $\mathbb{Z+}$   			&     $\top$              \\
- $\mathbb{Z+}$&  $\bot$			&   $\top$   			&  $\mathbb{Z+}$              	&       $\mathbb{Z+}$       			&     $\top$            \\
-    $\top$       	& $\bot$     				&      	$\top$		&        $\top$       	&            $\top$  			&     $\top$           \\ 
-    
-    \end{tabular}
-    \label{tbl:add}}~~~~~
-\subfloat[Subtraction]{    \begin{tabular}{c|ccccc}
-     			& $\bot$  		& $\mathbb{Z-}$ 	& $0$		 & $\mathbb{Z+}$ 	& $\top$ \\ \hline    $\bot$  		& $\bot$			&  $\bot$   			&     $\bot$          	&	    $\bot$                    	&    $\bot$  \\
- $\mathbb{Z-}$ 	& $\bot$			&  $\top$    			&         $\mathbb{Z-}$      	&          $\mathbb{Z-}$   			&        $\top$         \\
-    $0$    		& $\bot$			&   $\mathbb{Z+}$ 			&       $0$         	&            $\mathbb{Z-}$   			&     $\top$              \\
- $\mathbb{Z+}$&  $\bot$			&   $\mathbb{Z+}$   			&  $\mathbb{Z+}$              	&       $\top$       			&     $\top$            \\
-    $\top$       	& $\bot$     				&      	$\top$		&        $\top$       	&            $\top$  			&     $\top$           \\ \end{tabular}
-\label{tbl:sub}
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor}}
+\vspace{3in}
 }
 
-\subfloat[Multiplication]{    \begin{tabular}{c|ccccc}
-     			& $\bot$  		& $\mathbb{Z-}$ 	& $0$		 & $\mathbb{Z+}$ 	& $\top$ \\ \hline    $\bot$  		& $\bot$			&  $\bot$   			&     $\bot$          	&	    $\bot$                    	&    $\bot$  \\
- $\mathbb{Z-}$ 	& $\bot$			&  $\mathbb{Z+}$    			&         $0$      	&          $\mathbb{Z-}$    			&        $\top$         \\
-    $0$    		& $\bot$			&   $0$ 			&       $0$         	&            $0$   			&     $0$              \\
- $\mathbb{Z+}$&  $\bot$			&   $\mathbb{Z-}$   			&  $0$              	&       $\mathbb{Z+}$       			&     $\top$            \\
-    $\top$       	& $\bot$     				&      	$\top$		&        $0$       	&            $\top$  			&     $\top$           \\ \end{tabular}
-\label{tbl:mul}}~~~~~
-\subfloat[Division]{    \begin{tabular}{c|ccccc}
-     			& $\bot$  		& $\mathbb{Z-}$ 	& $0$		 & $\mathbb{Z+}$ 	& $\top$ \\ \hline    $\bot$  		& $\bot$			&  $\bot$   			&     $\bot$          	&	    $\bot$                    	&    $\bot$  \\
- $\mathbb{Z-}$ 	& $\bot$			&  $\mathbb{Z+}$    			&         $\bot$      	&          $\mathbb{Z-}$    			&        $\top$         \\
-    $0$    		& $\bot$			&   $0$ 			&       $\bot$         	&            $0$   			&     $0$              \\
- $\mathbb{Z+}$&  $\bot$			&   $\mathbb{Z-}$   			&  $\bot$              	&       $\mathbb{Z+}$       			&     $\top$            \\
-    $\top$       	& $\bot$     				&      	$\top$		&        $\bot$       	&            $\top$  			&     $\top$           \\ \end{tabular}
-\label{tbl:div}
-}
-\caption{Arithmetic Tables}
-\label{fig:table}
-\end{figure*}
-%\begin{homeworkProblem}
-\section{Arithmetic Operators}\emph{In a separate PDF document generated from Latex, formalize the abstract arithmetic operators on the integer abstract domain (i.e., addition, subtraction, multiplication, and division) and prove that they are all monotone (hint: the easiest way to formalize operators on finite abstract domains is usually to give them as a table).}
-\\\\
-For a function to be monotone, we must show that the function $f:\mathbb{S}\rightarrow \mathbb{S'}$, the following holds $\forall x,y \in S : x \sqsubseteq y \Rightarrow f(x) \sqsubseteq f(y)$
-We define our abstraction function as $\alpha^{\#}:\mathbb{Z}\rightarrow \mathbb{Z^\#} = \mathbb{\{\bot,Z-,}0\mathbb{,Z+,\top\}}$ where $\top = \mathbb{Z}$.
-We define $(x,y) \sqsubseteq (x',y')$ for $x,y,x',y' \in \mathbb{Z^\#} \iff x \sqsubseteq y$ and $x' \sqsubseteq y'$.  For the cases where $x = (\bot,*)$, the result $\bot$ is trivially $\sqsubseteq y, \forall y \in \mathbb{Z^\#}$, and similarly with $x = (*,\top)$, which yields $\top$.
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
 
-For convenience, the table for each operation can be found in Figure \ref{fig:table}.
+%----------------------------------------------------------------------------------------
 
-\subsection{Addition}
-Thus, for $x,y \in \mathbb{Z}$ we can show a proof by cases.  
-Since addition is commutative, without loss of generality, we denote $(x,y) \in (\mathbb{Z^\#},\mathbb{Z^\#})$ where $x \sqsubseteq y$.
-Our addition function is $f^{+}:(\mathbb{Z^\#},\mathbb{Z^\#})\rightarrow\mathbb{Z^\#}$.
-\paragraph{$x = (\mathbb{Z-},\mathbb{Z-})$}
-\begin{itemize}
-\item $y = (\mathbb{Z-},\mathbb{Z-}) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(y) \Rightarrow \mathbb{Z-} \sqsubseteq \mathbb{Z-}$
-\item $y = (\mathbb{Z-},\top) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(0) \Rightarrow \mathbb{Z-} \sqsubseteq \top$
-\item $y = (\top,\top) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(y) \Rightarrow \mathbb{Z-} \sqsubseteq \top$
-\end{itemize}
-\paragraph{$x = (0,0)$}
-\begin{itemize}
-\item $y = (0,0) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(0) \Rightarrow 0 \sqsubseteq 0$
-\item $y = (0,\top) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(y) \Rightarrow 0 \sqsubseteq \top$
-\item $y = (\top,\top) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(y) \Rightarrow 0 \sqsubseteq \top$
-\end{itemize}
-\paragraph{$x = (\mathbb{Z+},\mathbb{Z+})$}
-\begin{itemize}
-\item $y = (\mathbb{Z+},\mathbb{Z+}) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(0) \Rightarrow \mathbb{Z+} \sqsubseteq \mathbb{Z+}$
-\item $y = (\mathbb{Z+},\top) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(y) \Rightarrow \mathbb{Z+} \sqsubseteq \top$
-\item $y = (\top,\top) \Rightarrow \alpha^{\#}(x) \sqsubseteq \alpha^{\#}(y) \Rightarrow \mathbb{Z+} \sqsubseteq \top$
-\end{itemize} $\square$
+\begin{document}
 
-\subsection{Subtraction}
-For subtraction, commutativity does not hold, so we will outline the possible cases below.
-A similar logic holds for $\top$ and $\bot$ as it did it addition.
-However note that $\forall x = (*,\top), (\top,*)  \alpha^{\#}(x) = \top$ and is thus trivially is will satisfy monotonicity for any $x' \sqsubseteq (*,\top)$ or $(\top,*)$.
-Thus, the only remaining comparisons are where $(x,y) = (x',y')$, which also trivially hold.
-A proof by cases as done in the addition would also be possible, but unnecessary. $\square$
+\maketitle
+\newpage
 
-\subsection{Multiplication}
-A similar argument to our proof in subtraction and addition hold here, i.e., $\bot$ will always satisfy our requirement, and given that multiplication is commutative, we again can assume $(x,y) \Rightarrow x \sqsubseteq y$.
-$(\mathbb{Z-},\top), (\mathbb{Z+},\top)$, and $(\top,\top)$ will also hold under the same logic, however 0 is a special case here.
-However, the identity trivially holds, i.e.,$x = (0,\top), y = (0,\top) \Rightarrow 0 \sqsubseteq 0$ as does $x = (\top,\top), y = (\top,\top) \Rightarrow \top \sqsubseteq \top$.
-Thus satisfying the requirement to be monotone. $\square$
+\input{macros}
 
-\subsection{Division}
-The same logic as before applies again to every case but $(\top,0)$ and $(0,\top)$.
-However since the identity will trivially hold, and $\alpha^{\#}((\top,0)) = \bot \sqsubseteq \alpha^{\#}((\top,\top)) = \top$ and $\alpha^{\#}((0,\top)) = 0 \sqsubseteq \alpha^{\#}((\top,\top)) = \top$, we again have shown that the function is monotone.  $\square$
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+%
+%\newpage
+%\tableofcontents
+%\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+
+\section{Question 1}
+The problem asks to prove that:
+\begin{equation*}
+H(X) \leq 2log(\sum_{x \in \fancyx{}} \sqrt{p(x)}
+\end{equation*}
+This can be done in the following way:
+\begin{align}
+H(X) & = \sum_{x \in \fancyx} -p(x)log(p(x))\\
+& =  \sum_{x \in \fancyx} -2\frac{1}{2}p(x)log(p(x))\\
+& =  \sum_{x \in \fancyx} 2p(x)log(\frac{1}{\sqrt{p(x)} })\\
+& =  E_{p} [2 log(\frac{1}{ \sqrt{p(x)} })) ]\\
+& \leq  2 log[ E_{p} (\frac{1}{ \sqrt{p(x)} }) ]\label{one_jensens}\\
+2 log[ E_{p} (\frac{1}{ \sqrt{p(x)} }) ] & =  2 log[ \sum_{x \in \fancyx} \frac{p(x)}{ \sqrt{p(x)} } ]\\
+& =  2 log[ \sum_{x \in \fancyx} \sqrt{p(x)} ]
+\end{align}
+where \ref{one_jensens} is an applications of Jensen's inequality. \QED
+
+\newpage
+
+\section{Question 2}
+In this question we are asked for the various entropies give all of the joint probabilities.
+\begin{align*}
+Pr[\fancyx = 0, \fancyy = a] = 0.15 &~~~
+Pr[\fancyx = 0, \fancyy = b] = 0.3 &
+Pr[\fancyx = 0, \fancyy = c] = 0.05\\
+Pr[\fancyx = 1, \fancyy = a] = 0.25 &~~~
+Pr[\fancyx = 1, \fancyy = b] = 0.15 &
+Pr[\fancyx = 1, \fancyy = c] = 0.1\\
+\end{align*}
+First, we'll define the individual probability distributions:
+\begin{align*}
+Pr[\fancyx = 0] &= Pr[\fancyx = 0, \fancyy = a] + Pr[\fancyx = 0, \fancyy = b]  + Pr[\fancyx = 0, \fancyy = c]  &= 0.5\\
+Pr[\fancyx = 1] &= Pr[\fancyx = 1, \fancyy = a] + Pr[\fancyx = 1, \fancyy = b]  + Pr[\fancyx = 1, \fancyy = c]  &= 0.5\\
+\\
+Pr[\fancyy = a] &= Pr[\fancyx = 0, \fancyy = a]  + Pr[\fancyx = 1, \fancyy = a] &= 0.4\\
+Pr[\fancyy = b] &= Pr[\fancyx = 0, \fancyy = b]  + Pr[\fancyx = 1, \fancyy = b] &= 0.45\\
+Pr[\fancyy = c] &= Pr[\fancyx = 0, \fancyy = c]  + Pr[\fancyx = 1, \fancyy = c] &= 0.15
+\end{align*}
+First, we will calculate the basic entropies:
+\begin{align*}
+H(X) &= \sum_{x \in \fancyx} -p(x)log(p(x))\\
+ &= -0.5*log(0.5)-0.5*log(0.5) &= 0.301\\
+H(Y) &= \sum_{y \in \fancyy} -p(y)log(p(y))\\
+ &= -0.4*log(0.4)-0.45*log(0.45)-0.15*log(0.15) &= 0.439
+\end{align*}
+Recall:
+\begin{align*}
+Pr[X,Y] = Pr[X]*Pr[Y|X]\\
+Pr[Y|X] = \frac{Pr[X,Y]}{Pr[Y]}
+\end{align*}
+
+Next, we will compute the conditional entropies:
+\begin{align*}
+H(X | Y = a) &= \sum_{x \in \fancyx} -p(x|y=a)log(p( x | y=a))\\
+&= -\frac{0.15}{0.5}log(\frac{0.15}{0.5}) - \frac{0.25}{0.5} log(\frac{0.25}{0.5})\\
+&= 0.307\\
+\\
+H(X | Y = b) &= \sum_{x \in \fancyx} -p(x|y=b)log(p( x | y=b))\\
+&= -\frac{0.3}{0.5}log(\frac{0.3}{0.5}) - \frac{0.15}{0.5} log(\frac{0.15}{0.5})\\
+&= 0.290\\
+\\
+H(X | Y = c) &= \sum_{x \in \fancyx} -p(x|y=c)log(p( x | y=c))\\
+&= -\frac{0.05}{0.5}log(\frac{0.05}{0.5}) - \frac{0.1}{0.5} log(\frac{0.1}{0.5})\\
+&= 0.240\\
+\\
+H(X|Y) &= \sum_{y \in \fancyy} p(y) H(X|Y=y)\\
+&= 0.4*0.307 + 0.45*0.29 + 0.15*0.240\\
+&= .289
+\\
+\end{align*}
+or, more concisely (ignoring rounding errors):
+\begin{align*}
+H(X | Y) =& \sum_{x \in \fancyx ,y \in \fancyy} p(x,y)log(\frac{p(y)}{p( x, y)})\\
+=&~0.15log(\frac{0.4}{0.15}) + 0.3 log(\frac{0.45}{0.3}) + 0.05 log(\frac{0.15}{0.05})\\
+&+ 0.25log(\frac{0.4}{0.25}) + 0.15 log(\frac{0.45}{0.15}) + 0.1 log(\frac{0.15}{0.1})\\
+=&~0.281
+\\
+H(Y | X) =& \sum_{x \in \fancyx ,y \in \fancyy} p(x,y)log(\frac{p(x)}{p( x, y)})\\
+=&~0.15 log(\frac{0.5}{0.15}) + 0.3 log(\frac{0.5}{0.3}) + 0.05 log(\frac{0.5}{0.05})\\
+&+ 0.25 log(\frac{0.5}{0.25}) + 0.15 log(\frac{0.5}{0.15}) + 0.1 log(\frac{0.5}{0.1})\\
+=&~0.419
+% &= -0.5*log(0.5)-0.5*log(0.5) &= 0.301\\
+%H(Y) &= \sum_{y \in \fancyy} -p(y)log(p(y))\\
+% &= -0.4*log(0.4)-0.45*log(0.45)-0.15*log(0.15) &= 0.439
+\end{align*}
+Thus, we obtain:
+\begin{align*}
+H(X,Y) &= H(X) + H(Y|X)\\
+&= 0.301+0.419\\
+& = 0.720\\
+H(X,Y) &= H(Y) + H(X|Y)\\
+&= 0.439+0.281\\
+&= 0.720\\
+\end{align*}
+Finally, we compute:
+\begin{align*}
+I(X;Y) &= H(X) - H(X|Y)\\
+&= 0.301 - 0.281\\
+&= 0.02\\
+I(Y;X) &= H(Y) - H(Y|X)\\
+&= 0.439 - 0.419\\
+&= 0.02\\
+\end{align*}
+\QED
+\newpage
+
+\section{Question 3}
+
+\newpage
+
+\section{Question 4}
 
 
 
 
-%\end{homeworkProblem}\end{document}
+
+%\end{homeworkProblem}
+
+\end{document}
