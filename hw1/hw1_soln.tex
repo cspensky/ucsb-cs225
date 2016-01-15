@@ -256,6 +256,61 @@ I(Y;X) &= H(Y) - H(Y|X)\\
 \newpage
 
 \section{Question 3}
+In this question we given the distribution $p_{\lambda} = (1-\lambda)*p_0 + \lambda*p_1$, asked to prove relationships between $H(p_{\lambda}), H(p_0), H(p_1), \lambda,$ and $D$.
+
+The immediately obvious ones are:
+\begin{align*}
+H(p_{\lambda}) &= H(p_0) & (\lambda = 0)\\
+H(p_{\lambda}) &= H(p_1) & (\lambda = 1)\\
+H(p_{\lambda}) &\leq H(p_0) + H(p_1) \\
+\end{align*}
+\begin{align*}
+D(p||q) = D(p||q) = 0 \Rightarrow p = q \Rightarrow H(p_{\lambda}) = H(p_0) = H(p_1)
+\end{align*}
+Intuitively, it seems like something of the form
+\begin{align*}
+H(p_{\lambda}) &= (1-\lambda)*H(p_0) + \lambda*H(p_1)\\
+\end{align*}
+Note that
+\begin{align*}
+p_0 &= \frac{p_\lambda - \lambda p_1}{1- \lambda}\\
+p_1 &= \frac{p_\lambda - (1-\lambda)p_0}{\lambda}\\
+\end{align*}
+Thus
+\begin{align*}
+H(p_1) &= \sum_{x \in \fancyx} \frac{p_\lambda - (1-\lambda)p_0}{\lambda} log(\frac{p_\lambda - (1-\lambda)p_0}{\lambda})\\
+&= \sum_{x \in \fancyx} \frac{p_\lambda - (1-\lambda)p_0}{\lambda} log(p_\lambda - (1-\lambda)p_0) - \frac{p_\lambda - (1-\lambda)p_0}{\lambda} log(\lambda)\\
+&= \sum_{x \in \fancyx} \frac{p_\lambda}{\lambda} log(p_\lambda - (1-\lambda)p_0) 
+ - \frac{1}{\lambda} log(p_\lambda - (1-\lambda)p_0) 
+  + \frac{\lambda p_0}{\lambda} log(p_\lambda - (1-\lambda)p_0) - \frac{p_\lambda - (1-\lambda)p_0}{\lambda} log(\lambda)\\
+  &= \sum_{x \in \fancyx} \frac{p_\lambda}{\lambda} log(\lambda p_1) 
+ - \frac{1}{\lambda} log(\lambda p_1) 
+  + \frac{\lambda p_0}{\lambda} log(\lambda p_1) - \frac{p_\lambda - (1-\lambda)p_0}{\lambda} log(\lambda)\\
+&= \sum_{x \in \fancyx} \frac{(1-\lambda)p_0 + \lambda p_1}{\lambda} log(\lambda p_1) 
+ - \frac{1}{\lambda} log(\lambda p_1) 
+  + \frac{\lambda p_0}{\lambda} log(\lambda p_1) - \frac{p_\lambda - (1-\lambda)p_0}{\lambda} log(\lambda)\\
+  &= \sum_{x \in \fancyx} \frac{(1-\lambda)p_0}{\lambda} log(\lambda p_1) + p_1  log(\lambda p_1)
+ - \frac{1}{\lambda} log(\lambda p_1) 
+  + \frac{\lambda p_0}{\lambda} log(\lambda p_1) - \frac{p_\lambda - (1-\lambda)p_0}{\lambda} log(\lambda)\\
+    \\
+H(p_0) &= \sum_{x \in \fancyx} \frac{p_\lambda - \lambda p_1}{1- \lambda} log(\frac{p_\lambda - \lambda p_1}{1- \lambda})\\
+&= \sum_{x \in \fancyx} \frac{p_\lambda - \lambda p_1}{1- \lambda} log(p_\lambda - \lambda p_1) - \frac{p_\lambda - \lambda p_1}{1- \lambda} log(1- \lambda)\\
+&= \sum_{x \in \fancyx} \frac{p_\lambda}{1- \lambda} log(p_\lambda - \lambda p_1) - \frac{\lambda p_1}{1- \lambda}log(p_\lambda - \lambda p_1) - \frac{p_\lambda - \lambda p_1}{1- \lambda} log(1- \lambda)\\
+&= \sum_{x \in \fancyx} \frac{p_\lambda}{1- \lambda} log((1 - \lambda) p_0) - \frac{\lambda p_1}{1- \lambda}log((1- \lambda) p_0) - \frac{p_\lambda - \lambda p_0}{1- \lambda} log(1- \lambda)\\
+&= \sum_{x \in \fancyx} \frac{(1-\lambda) p_0 + \lambda p_1}{1- \lambda} log((1 - \lambda) p_0) - \frac{\lambda p_1}{1- \lambda}log((1- \lambda) p_0) - \frac{p_\lambda - \lambda p_0}{1- \lambda} log(1- \lambda)\\
+&= \sum_{x \in \fancyx} p_0 log((1 - \lambda) p_0) + \frac{\lambda p_1}{1- \lambda} log((1 - \lambda) p_0) - \frac{\lambda p_1}{1- \lambda}log((1- \lambda) p_0) - \frac{p_\lambda - \lambda p_0}{1- \lambda} log(1- \lambda)\\
+\\
+H(p_\lambda) &= \sum_{x \in \fancyx} ((1-\lambda)p_0 + \lambda p_1) log((1-\lambda) p_0 + \lambda p_1)\\
+&= \sum_{x \in \fancyx} (1-\lambda)p_0 log((1-\lambda) p_0 + \lambda p_1)
+ + \lambda p_1 log((1-\lambda) p_0 + \lambda p_1)\\
+ &= \sum_{x \in \fancyx} log((1-\lambda) p_0 + \lambda p_1) - \lambda p_0 log((1-\lambda) p_0 + \lambda p_1)
+ + \lambda p_1 log((1-\lambda) p_0 + \lambda p_1)\\
+  &= \sum_{x \in \fancyx} log(p_\lambda) - \lambda p_0 log(p_\lambda) + \lambda p_1 log(p_\lambda)\\
+  \\
+  H(p_\lambda) -H(p_0) &= \sum_{x \in \fancyx} log(p_\lambda) - \lambda p_0 log(p_\lambda) + \lambda p_1 log(p_\lambda) - p_0log(p_0)\\
+  &= \sum_{x \in \fancyx} log(p_\lambda) - p_0(\lambda log(p_\lambda) + log(p_0)) + \lambda p_1 log(p_\lambda) 
+\end{align*}
+Nevertheless, after countless wasted hours and scratch paper, I am unable to come up with anything more interesting than the obvious w.r.t. these relationships...
 
 \newpage
 
