@@ -1,0 +1,74 @@
+\section{Question 2}
+This question asked us to find the Huffman Coding of $X^3$ where $\fancyx = \{a,b\}, p(a) = .25, p(b) = .75$.
+First, we need to know the probability of every string happening.
+For example, $p(aaa) = p(a)*p(a)*p(a) = .25^3 = 0.015625$ and $p(aab) = p(a)*p(a)*p(b) = .25^2*.75 = 0.046875$.
+
+The table below outlines all of these probabilities:
+\begin{figure}[!h]
+\begin{center}
+\begin{tabular}{ c | c }
+ {\bf $x \in \fancyx^3$} & {\bf $Pr(x)$} \\
+ \hline
+ aaa & 0.015625\\   
+ aab & 0.046875\\
+ aba & 0.046875\\
+ baa & 0.046875\\
+ abb & 0.140625\\
+ bab & 0.140625\\
+ bba & 0.140625\\
+ bbb & 0.421875\\
+ \hline
+ aaa$|$aab & 0.0625\\
+ aba$|$baa & 0.09375\\
+ aaa$|$aab$|$aba$|$baa & 0.15625\\
+ abb$|$bab & 0.28125\\
+ aaa$|$aab$|$aba$|$baa$|$bba & 0.296875\\
+ aaa$|$aab$|$aba$|$baa$|$bba$|$abb$|$bab & 0.578125\\
+\end{tabular}
+\end{center}
+\end{figure}
+
+The tree of the Huffman code can be seen below:
+\begin{figure}[!h]
+\begin{forest}
+ for tree={
+    parent anchor=south,
+    child anchor=north,
+    if n children=0{
+      font=\itshape,
+      tier=terminal,
+    }{},
+  }
+[aaa$|$aab$|$aba$|$baa$|$bba$|$abb$|$bab$|$bbb
+    [aaa$|$aab$|$aba$|$baa$|$bba$|$abb$|$bab
+        [aaa$|$aab$|$aba$|$baa$|$bba
+            [aaa$|$aab$|$aba$|$baa
+              [aaa$|$aab
+                [aaa [00000]]
+                [aab [00001]]
+              ]
+              [aba$|$baa
+                [aba [00010]]
+                [baa [00011]]
+              ]
+           ]
+           [bba [001]]
+        ]   
+        [abb$|$bab
+            [abb [010]]
+            [bab [011]]
+        ]
+    ]
+    [bbb [1]]
+]
+\end{forest}
+\end{figure}
+
+The expected code length is thus:
+
+\begin{align*}
+L(C) & = \sum_{x \in \fancyx} p(x)l(x)\\
+& =  0.015625*5 + 3(0.046875*5) + 3(0.140625*3) + 0.421875*1\\
+& = 2.46875~\text{bits}
+\end{align*}
+
