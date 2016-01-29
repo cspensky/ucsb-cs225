@@ -1,1 +1,53 @@
 \section{Question 4}
+In this question we are asked to provide the tightest upper-bound of the Lempel-Ziv compression algorithm, i.e. given a string of length $n$, what is the maximum length of it's encoded bit string?
+
+For an upper bound, we must assume the worse-case scenario for the encoding scheme.  In this case, is that every possible combination of bits appears for a each given encoded length (i.e. both $1$ and $0$ are used to encode the patterns of length 1, $11, 10, 00, 01$ all appear for the patterns of length 2 that are encoded, etc.).
+
+For a 2 bit string, the maximum would be $01$ or (0,0) (0,1), the length of the indices would be 1 bit, thus the length of the LV string would be $2*(1+1) = 4$ bits.
+
+For a 4 bit string, a maximum would be $0100$ or (0,0) (0,1) (0,0), the length of the indices would be 2 bit, thus the length of the LV string would be $3*(2+1) = 9)$ bits.
+
+We will now try to construct the worst-case string.  As stated previously, it would ideally enumerate every possible encoded value at every length.  Thus, we will construct the string using binary counting as follows:
+\begin{figure}[!h]
+\begin{center}
+
+\begin{tabular}{ccccccccccccccc}
+$\lambda$ & 0& 1 & 00 & 01 & 10 & 11 & 000 & 001 & 010 & 011 & 100 & 101 & 110 & 111\\
+0 & 1 & 0 & 1 & 2 & 3 & 0 & 1 &  2 & 3 & 4 & 5 & 6 & 7 & 8\\
+\end{tabular}
+\end{center}
+\end{figure}
+Note that the LZ dictionary words and encoding are then simply:
+
+\begin{figure}[!h]
+\small
+\setlength{\tabcolsep}{.27em}
+\begin{center}
+\begin{tabular}{cccccccccccccc}
+$0_{1}$ 	& $1_{2}$ & $00_{3}$ 	& $01_{4}$ 	& $10_{5}$ 	& $11_{6}$ 	& $000_{7}$ 	& $001_{8}$ 	& $010_{9}$ 	& $011_{10}$ 	& $100_{11}$ 	& $101_{12}$ 	& $110_{13}$ 	& $111_{14}$\\
+(0,0) 		&  (0,1)	& (1,0)		& (1,1)		& (2,0)		& (2,0)		& (3,0)		& (3,1)		& (4,0)		& (4,1)		& (5,0)		& (5,1)		& (6,0)		& (6,1)\\
+\end{tabular}
+\end{center}
+\end{figure}
+
+Note that the length of the string is 34 bits, the minimum length needed to encode the indices is $\lceil \log_2(6) \rceil = 3$, and the LV length is $14*(3+1) = 56$.
+
+Notice that in our worst case scenario, we are simply enumerating a complete binary tree, and to enumerate the number of nodes, i.e. LV dictionaries.  The number of bits that can be encoded by a complete binary tree of depth $d$ (we ignore depth 0, as this is implicit in LV) is:
+\begin{align*}
+\sum_{i=1}^{d}2^{2d-1} = \sum_{i=1}^{d}4*2^{d}*\frac{1}{2} = 2*(2^{d+1} - 1) - 2^{0} = 2^{d+2} - 2 = n
+\end{align*}
+since the numbers of nodes at each depth is $2^d$ and the number of bits per node at that level is $2^{d-1}$.  Thus, the size of the tree, as a function of $n$ is 
+\begin{align*}
+ d = \log_2(n +2) - 2
+\end{align*}
+the numbers of nodes in a binary tree, i.e. number of LV dictionaries, of depth $d$ is $\sum_{i=1}^{d}2^{d} =  2^{d+1} - 2$, thus the number of dictionaries is:
+\begin{align*}
+ (2^{\log_2(n +2) - 1} - 2) = \frac{1}{2}(n + 2) - 2) = \frac{n}{2} -1
+\end{align*}
+Note that the indices at each level of the tree, all point to previous level, thus the maximum index value required is the number of nodes of a tree of depth $d-1$, thus when we multiply the number of bits required to encode this number, by the number of dictionaries, we get our bound:
+\begin{align*}
+&(\log_2(n +2) - 2 - 2^{\log_2(n +2) - 2})*(\frac{n}{2} -1)\\
+=~& (\log_2(n +2) - 2 - \frac{1}{4}(n +2))*(\frac{n}{2} -1)\\
+=~& (\log_2(n +2) - \frac{5}{2} - \frac{1}{4}n)*(\frac{n}{2} -1)
+\end{align*}
+Thus our worst-case is roughly bound by $O(n^2)$.  This bound could be reduced by accounting for the fact not every dictionary on the bottom level of the tree will be utilized, however the overall boudn of $n^2$ would still apply.

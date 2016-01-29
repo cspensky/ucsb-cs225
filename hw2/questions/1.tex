@@ -1,1 +1,23 @@
 \section{Question 1}
+
+In this question we are given that $\sum_{i=1}^{m}2^{-l_i} = 1 - \delta$, and asked to prove something interesting about $L(C) - H(p)$ in terms of $\delta$.  Trivially, we can say that $L(C) - H(p) > 0$, by the definition given in class and Kraft's.
+Note that $\delta$ is essentially dictating the depth of our binary tree, the greater $\delta$ is, the larger our lengths, and thus, the deeper our tree is.
+In fact, $\delta$ is the fraction of the tree, or ``bottom line'' of this tree/carpet, that we are {\bf not} using, thus restricting our possible encodings.
+A similar proof the original, Kraft's proof, to show that the optimal encoding is produced by $l_i = -\log(\frac{p_i-\delta}{m})$.
+
+We can re-write summation as
+\begin{align*}
+\sum_{i=1}^{m}(2^{-l_i} +\delta/m) = 1
+\end{align*}
+and confirm that the equality still holds.
+
+Thus, our difference is:
+\begin{align*}
+L(C) - H(p) \geq \sum_{i=1}^{m}[p_i-\log(\frac{-p_i\delta}{m}) + p_i\log(p_i)] &= \sum_{i=1}^{m}[-p_i(\log(\frac{p_i-\delta}{m}) + \log(p_i))]\\
+&= \sum_{i=1}^{m}[-p_i\log(\frac{p_i(p_i-\delta)}{m})]\\
+&= E_p[-\log(\frac{p_i(p_i-\delta)}{m})]\\
+&= H(\frac{p_i(p_i-\delta)}{m})
+\end{align*}
+
+The best encoding, $2^{-l_i}$ must be at least $\frac{1-\delta}{m}$.
+

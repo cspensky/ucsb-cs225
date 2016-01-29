@@ -1,1 +1,33 @@
 \section{Question 3}
+This question asks for the Shannon?Fano?Elias coding of the same data presented in Question 2.
+First, we must compute $\bar{F}(x), \forall x \in X^3$.
+Recall that:
+\begin{align*}
+\bar F(x) = \sum_{x_i < x}p(x_i) + \frac{1}{2} p(x)
+\end{align*}
+We present the result for each element in $X^3$ below, with their respective binary representation.
+\begin{figure}[!h]
+\begin{center}
+\begin{tabular}{ c | c | c | c  | c | l}
+ {\bf $x \in \fancyx^3$} & {\bf Pr(x)} & {\bf $\bar F(x)$} & {\bf binary($\bar F(x)$)}  & {\bf $\lceil -\log_2 p(x) \rceil$ } & {\bf $c(x)$}\\
+ \hline
+ aaa & 0.015625 & 0.0078125 & 0.{\bf 000000}1 & 6 & 000000\\   
+ aab & 0.046875 & 0.0390625 & 0.{\bf 00001}01 & 5 & 00001\\
+ aba & 0.046875 & 0.0859375 & 0.{\bf 00010}11 & 5 & 00010\\
+ baa & 0.046875 & 0.1328125 & 0.{\bf 00100}01 & 5 & 00100\\
+ abb & 0.140625 & 0.2265625 & 0.{\bf 001}1101 & 3 & 001\\
+ bab & 0.140625 & 0.3671875 & 0.{\bf 010}1111 & 3 & 010\\
+ bba & 0.140625 & 0.5078125 & 0.{\bf 100}0001 & 3 & 100\\
+ bbb & 0.421875 & 0.7890625 &  0.{\bf 11}00101 & 2 & 11\\
+\end{tabular}
+\end{center}
+\caption{Table outlining the SFE coding of the given alphabet.}
+\end{figure}
+
+The expected code length per letter is thus:
+
+\begin{align*}
+L(C) & = \sum_{x \in \fancyx} p(x)l(x)\\
+& =  0.015625*6 + 3(0.046875*5) + 3(0.140625*3) + 0.421875*2\\
+& = 2.90625~\text{bits}
+\end{align*}

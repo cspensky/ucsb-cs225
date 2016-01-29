@@ -2,7 +2,7 @@
 This question asked us to find the Huffman Coding of $X^3$ where $\fancyx = \{a,b\}, p(a) = .25, p(b) = .75$.
 First, we need to know the probability of every string happening.
 For example, $p(aaa) = p(a)*p(a)*p(a) = .25^3 = 0.015625$ and $p(aab) = p(a)*p(a)*p(b) = .25^2*.75 = 0.046875$.
-
+\\\\
 The table below outlines all of these probabilities:
 \begin{figure}[!h]
 \begin{center}
@@ -64,7 +64,7 @@ The tree of the Huffman code can be seen below:
 \end{forest}
 \end{figure}
 
-The expected code length is thus:
+The expected code length per letter is thus:
 
 \begin{align*}
 L(C) & = \sum_{x \in \fancyx} p(x)l(x)\\
